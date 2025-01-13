@@ -45,8 +45,24 @@ function calculateHandTotal(hand) {
 }
 
 // Test: check calculateHandTotal function works (should total 15)
-let hand = ["Five", "Ten", "Ace"];
-console.log(calculateHandTotal(hand));
+// let hand = ["Five", "Ten", "Ace"];
+// console.log(calculateHandTotal(hand));
 
-hand = ["Ten", "Ace"];
-console.log(calculateHandTotal(hand));
+// hand = ["Ten", "Ace"];
+// console.log(calculateHandTotal(hand));
+
+// Deal two cards into each array, console log cards and total
+
+//Function to add one card to selected hand
+function addCard(deck) {
+    // get random card
+    const randomIndex = Math.floor(Math.random() * Object.keys(deck).length);
+    const cardKey = Object.keys(deck)[randomIndex];
+    return cardKey
+}
+
+function pushCard(hand) {
+    // push card to hand array
+}
+
+console.log(addCard(deck));
