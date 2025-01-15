@@ -68,7 +68,10 @@ function pushCard(hand, deck) {
   console.log("hand is:", hand.hand);
 }
 
+// Test add card function:
 console.log(addCard(deck));
+
+// Test pushCard function:
 console.log("adding three cards to player");
 pushCard(player, deck);
 pushCard(player, deck);
