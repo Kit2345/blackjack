@@ -55,14 +55,23 @@ function calculateHandTotal(hand) {
 
 //Function to add one card to selected hand
 function addCard(deck) {
-    // get random card
-    const randomIndex = Math.floor(Math.random() * Object.keys(deck).length);
-    const cardKey = Object.keys(deck)[randomIndex];
-    return cardKey
+  // get random card
+  const randomIndex = Math.floor(Math.random() * Object.keys(deck).length);
+  const cardKey = Object.keys(deck)[randomIndex];
+  return cardKey;
 }
 
-function pushCard(hand) {
-    // push card to hand array
+function pushCard(hand, deck) {
+  new_card = addCard(deck);
+  console.log("new card:", new_card);
+  hand.hand.push(new_card);
+  console.log("hand is:", hand.hand);
 }
 
 console.log(addCard(deck));
+console.log("adding three cards to player");
+pushCard(player, deck);
+pushCard(player, deck);
+pushCard(player, deck);
+console.log("adding one card to player");
+pushCard(computer, deck);
