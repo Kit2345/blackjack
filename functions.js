@@ -54,17 +54,19 @@ export function dealNewGame(player, computer, deck) {
 }
 
 export function result(player, computer) {
+    let result = "";
   if (player.handValue > 21) {
-    return "You have bust. Player lose";
+    result = "You have bust. Player lose";
   } else if (computer.handValue > 21) {
-    return "Computer has bust. Player win";
+    result = "Computer has bust. Player win";
   } else if (computer.handValue > player.handValue) {
-    return "Computer Wins";
+    result = "Computer Wins";
   } else if (computer.handValue < player.handValue) {
-    return "Player Wins";
+    result = "Player Wins";
   } else {
-    return "Tie goes to the House. Computer Wins";
+    result = "Tie goes to the House. Computer Wins";
   }
+  return `Player hand: ${player.hand}, player total: ${player.handValue}. Computer hand: ${computer.hand}, computer total: ${computer.handValue}. ${result}`;
 }
 
 // Function to ask player what they want to do:
@@ -82,17 +84,27 @@ export function result(player, computer) {
 
 export function drawOption(player, deck) {
   while (true) {
-    if (
+    if (player.handValue <= 21 &&
       window.confirm(
         `Your current hand is: ${player.hand}, and total is: ${player.handValue}. Would you like to draw another card?`
       )
     ) {
       pushCard(player, deck);
       console.log(player.hand);
-    } else {
+    } else if (
+        player.handValue > 21 ) {
+            alert(`Your total is ${player.handValue}. You have bust.`)
+            break;
+        }
+    else {
       break;
     }
   }
 }
 
-// Function to draw and stick.
+// Function for computer
+export function computerTurn(computer, deck) {
+    while (computer.handValue < 17) {
+        pushCard(computer, deck);
+    }
+}
