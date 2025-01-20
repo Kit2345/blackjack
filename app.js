@@ -76,5 +76,5 @@ console.log("adding three cards to player");
 pushCard(player, deck);
 pushCard(player, deck);
 pushCard(player, deck);
-console.log("adding one card to player");
+console.log("adding one card to computer");
 pushCard(computer, deck);
