@@ -65,7 +65,7 @@ function pushCard(hand, deck) {
   console.log("new card:", new_card);
   hand.hand.push(new_card);
   total = calculateHandTotal(hand.hand);
-  console.log("hand is:", hand.hand, "total is:", total);
+  console.log("hand is:", hand.hand, "total is:");
 }
 
 // Test add card function:
