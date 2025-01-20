@@ -34,11 +34,10 @@ function calculateHandTotal(hand) {
       ace_count++;
     }
     hand_total += deck[hand[i]];
-
-    if (ace_count > 0) {
-      if (hand_total + 10 <= 21) {
-        hand_total = hand_total + 10;
-      }
+  }
+  if (ace_count > 0) {
+    if (hand_total + 10 <= 21) {
+      hand_total = hand_total + 10;
     }
   }
   return hand_total;
@@ -65,16 +64,22 @@ function pushCard(hand, deck) {
   new_card = addCard(deck);
   console.log("new card:", new_card);
   hand.hand.push(new_card);
-  console.log("hand is:", hand.hand);
+  total = calculateHandTotal(hand.hand);
+  console.log("hand is:", hand.hand, "total is:", total);
 }
 
 // Test add card function:
 console.log(addCard(deck));
 
-// Test pushCard function:
+// // Test pushCard function:
 console.log("adding three cards to player");
 pushCard(player, deck);
 pushCard(player, deck);
 pushCard(player, deck);
-console.log("adding one card to computer");
+
+// console.log("adding one card to computer");
 pushCard(computer, deck);
+
+// Check if totals make sense, if ace added first.
+player.hand = ["Ace", "King"];
+pushCard(player, deck);
