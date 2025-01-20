@@ -5,6 +5,7 @@ import {
   resetGame,
   dealNewGame,
   result,
+  drawOption,
 } from "./functions.js";
 
 let deck = {
@@ -60,3 +61,6 @@ console.log(player);
 console.log(computer);
 
 console.log(result(player, computer));
+
+// MVP 2.0
+drawOption(player, deck);

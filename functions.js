@@ -66,3 +66,33 @@ export function result(player, computer) {
     return "Tie goes to the House. Computer Wins";
   }
 }
+
+// Function to ask player what they want to do:
+// Pop up box needs to tell user: current hand, handvalue,
+// Ask whether to draw or stick.
+// While loop -> draw = continue loop
+//            -> bust = break loop
+//            -> stick = break loop
+
+// While loop:
+
+// Confirm box:
+// window.confirm("Do you want to draw?");
+// Ask player whether they want to draw?
+
+export function drawOption(player, deck) {
+  while (true) {
+    if (
+      window.confirm(
+        `Your current hand is: ${player.hand}, and total is: ${player.handValue}. Would you like to draw another card?`
+      )
+    ) {
+      pushCard(player, deck);
+      console.log(player.hand);
+    } else {
+      break;
+    }
+  }
+}
+
+// Function to draw and stick.
