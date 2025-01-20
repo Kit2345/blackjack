@@ -1,4 +1,11 @@
-import { addCard, pushCard, calculateHandTotal, resetGame, dealNewGame } from './functions.js';
+import {
+  addCard,
+  pushCard,
+  calculateHandTotal,
+  resetGame,
+  dealNewGame,
+  result,
+} from "./functions.js";
 
 let deck = {
   Ace: 1,
@@ -17,7 +24,7 @@ let deck = {
 };
 
 let gameStats = [];
-let player = { hand: [], handValue: 2 };
+let player = { hand: [], handValue: 0 };
 let computer = { hand: [], handValue: 0 };
 
 // Test: check calculateHandTotal function works (should total 15)
@@ -51,3 +58,5 @@ resetGame(gameStats, player, computer);
 dealNewGame(player, computer, deck);
 console.log(player);
 console.log(computer);
+
+console.log(result(player, computer));
