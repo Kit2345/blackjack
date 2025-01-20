@@ -1,4 +1,4 @@
-import { addCard, pushCard, calculateHandTotal } from './functions.js';
+import { addCard, pushCard, calculateHandTotal, resetGame, dealNewGame } from './functions.js';
 
 let deck = {
   Ace: 1,
@@ -17,9 +17,7 @@ let deck = {
 };
 
 let gameStats = [];
-
-let player = { hand: [], handValue: 0 };
-
+let player = { hand: [], handValue: 2 };
 let computer = { hand: [], handValue: 0 };
 
 // Test: check calculateHandTotal function works (should total 15)
@@ -30,17 +28,26 @@ let computer = { hand: [], handValue: 0 };
 // console.log(calculateHandTotal(hand));
 
 // Test add card function:
-console.log(addCard(deck));
+// console.log(addCard(deck));
 
-// // Test pushCard function:
-console.log("adding three cards to player");
-pushCard(player, deck);
-pushCard(player, deck);
-pushCard(player, deck);
+// // // Test pushCard function:
+// console.log("adding three cards to player");
+// pushCard(player, deck);
+// pushCard(player, deck);
+// pushCard(player, deck);
 
-// console.log("adding one card to computer");
-pushCard(computer, deck);
+// // console.log("adding one card to computer");
+// pushCard(computer, deck);
 
-// Check if totals make sense, if ace added first.
-player.hand = ["Ace", "King"];
-pushCard(player, deck);
+// // Check if totals make sense, if ace added first.
+// player.hand = ["Ace", "King"];
+// pushCard(player, deck);
+
+// Reset Hands
+resetGame(gameStats, player, computer);
+// console.log(player);
+
+// Deal new game
+dealNewGame(player, computer, deck);
+console.log(player);
+console.log(computer);

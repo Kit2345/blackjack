@@ -8,10 +8,10 @@ export function addCard(deck) {
 
   export function pushCard(user, deck) {
     let new_card = addCard(deck);
-    console.log("new card:", new_card);
+    // console.log("new card:", new_card);
     user.hand.push(new_card);
     let total = calculateHandTotal(user.hand, deck);
-    console.log("hand is:", user.hand, "total is:", total);
+    // console.log("hand is:", user.hand, "total is:", total);
   }
 // function calculate hand total
 // Input: Hand which will be an array
@@ -34,4 +34,20 @@ export function addCard(deck) {
       }
     }
     return hand_total;
+  }
+
+  export function resetGame(gamestats, player, computer) {
+    // return user = { hand: [], handValue: 0 };
+    player.hand.splice(0, player.hand.length);
+    player.handValue = 0;
+    computer.hand.splice(0, computer.hand.length);
+    computer.handValue = 0;
+    // gamestats.splice()
+  }
+  // Function that deals a new game
+  export function dealNewGame(player, computer, deck) {
+    pushCard(player, deck);
+    pushCard(player, deck);
+    pushCard(computer, deck);
+    pushCard(computer, deck);
   }
