@@ -104,7 +104,7 @@ export function drawOption(player, deck) {
 
 // Function for computer
 export function computerTurn(computer, deck) {
-    while (computer.handValue < 17) {
+    while (computer.handValue < 17 && computer.hand.length < 5) {
         pushCard(computer, deck);
     }
 }
