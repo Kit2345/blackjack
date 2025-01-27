@@ -79,6 +79,12 @@ function startGame(deck, player, computer, gameStats) {
 
 startGame(deck, player, computer, gameStats);
 
+while (true) {
+  if (window.confirm("Do you want to play another game?")) {
+    startGame(deck, player, computer, gameStats);
+  }
+}
+
 // Function 1 (app)
 // reset on page load and run function 2
 // Function 2 (function)

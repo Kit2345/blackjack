@@ -121,11 +121,9 @@ export function computerTurn(computer, deck) {
 }
 
 export function playGame(deck, player, computer, gameStats) {
-  while (true) {
-    dealNewGame(player, computer, deck);
-    drawOption(player, deck);
-    computerTurn(computer, deck);
-    alert(result(player, computer, gameStats));
-    resetHand(player, computer);
-  }
+  dealNewGame(player, computer, deck);
+  drawOption(player, deck);
+  computerTurn(computer, deck);
+  alert(result(player, computer, gameStats));
+  resetHand(player, computer);
 }
