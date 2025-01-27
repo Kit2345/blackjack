@@ -81,7 +81,9 @@ startGame(deck, player, computer, gameStats);
 
 while (true) {
   if (window.confirm("Do you want to play another game?")) {
-    startGame(deck, player, computer, gameStats);
+    playGame(deck, player, computer, gameStats);
+  } else {
+    break;
   }
 }
 
