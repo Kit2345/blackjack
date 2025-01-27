@@ -39,13 +39,18 @@ export function calculateHandTotal(hand, deck) {
 
 export function resetGame(gamestats, player, computer) {
   // return user = { hand: [], handValue: 0 };
+  resetHand(player, computer);
+  gamestats.playerScore = 0;
+  gamestats.computerScore = 0;
+}
+
+export function resetHand(player, computer) {
   player.hand.splice(0, player.hand.length);
   player.handValue = 0;
   computer.hand.splice(0, computer.hand.length);
   computer.handValue = 0;
-  gamestats.playerScore = 0;
-  gamestats.computerScore = 0;
 }
+
 // Function that deals a new game
 export function dealNewGame(player, computer, deck) {
   pushCard(player, deck);
@@ -55,21 +60,21 @@ export function dealNewGame(player, computer, deck) {
 }
 
 export function result(player, computer, score) {
-    let result = "";
+  let result = "";
   if (player.handValue > 21) {
-    score.computerScore ++;
+    score.computerScore++;
     result = "You have bust. Player lose";
   } else if (computer.handValue > 21) {
-    score.playerScore ++;
+    score.playerScore++;
     result = "Computer has bust. Player win";
   } else if (computer.handValue > player.handValue) {
-    score.computerScore ++;
+    score.computerScore++;
     result = "Computer Wins";
   } else if (computer.handValue < player.handValue) {
-    score.playerScore ++;
+    score.playerScore++;
     result = "Player Wins";
   } else {
-    score.computerScore ++;
+    score.computerScore++;
     result = "Tie goes to the House. Computer Wins";
   }
   return `Player hand: ${player.hand}, player total: ${player.handValue}. Computer hand: ${computer.hand}, computer total: ${computer.handValue}. ${result} Player: ${score.playerScore} Computer: ${score.computerScore}`;
@@ -90,19 +95,19 @@ export function result(player, computer, score) {
 
 export function drawOption(player, deck) {
   while (true) {
-    if (player.handValue <= 21 && player.hand.length < 5 &&
+    if (
+      player.handValue <= 21 &&
+      player.hand.length < 5 &&
       window.confirm(
         `Your current hand is: ${player.hand}, and total is: ${player.handValue}. Would you like to draw another card?`
       )
     ) {
       pushCard(player, deck);
       console.log(player.hand);
-    } else if (
-        player.handValue > 21 ) {
-            alert(`Your total is ${player.handValue}. You have bust.`)
-            break;
-        }
-    else {
+    } else if (player.handValue > 21) {
+      alert(`Your total is ${player.handValue}. You have bust.`);
+      break;
+    } else {
       break;
     }
   }
@@ -110,14 +115,17 @@ export function drawOption(player, deck) {
 
 // Function for computer
 export function computerTurn(computer, deck) {
-    while (computer.handValue < 17 && computer.hand.length < 5) {
-        pushCard(computer, deck);
-    }
+  while (computer.handValue < 17 && computer.hand.length < 5) {
+    pushCard(computer, deck);
+  }
 }
 
 export function playGame(deck, player, computer, gameStats) {
-  dealNewGame(player, computer, deck);
-  drawOption(player, deck);
-  computerTurn(computer, deck);
-  alert(result(player, computer, gameStats));
+  while (true) {
+    dealNewGame(player, computer, deck);
+    drawOption(player, deck);
+    computerTurn(computer, deck);
+    alert(result(player, computer, gameStats));
+    resetHand(player, computer);
+  }
 }

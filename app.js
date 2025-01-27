@@ -7,7 +7,7 @@ import {
   result,
   drawOption,
   computerTurn,
-  playGame
+  playGame,
 } from "./functions.js";
 
 let deck = {
@@ -78,10 +78,10 @@ function startGame(deck, player, computer, gameStats) {
 }
 
 startGame(deck, player, computer, gameStats);
+
 // Function 1 (app)
 // reset on page load and run function 2
 // Function 2 (function)
 // loop that deals, scores, stores using Function 3, deals again...
 // when false (play clicks no to continue) loop breaks and score remains on screen
 // when player clicks start again go back to function 1 from beginning
-
