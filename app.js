@@ -34,15 +34,8 @@ function startGame(deck, player, computer, gameStats) {
   }
 }
 
-// startGame(deck, player, computer, gameStats);
-
-// const game_score = document.getElementById("game-scores");
-// console.log(game_score);
-
 const game_start_button = document.getElementById("game-start-button");
 console.log(game_start_button);
 game_start_button.addEventListener("click", () => {
   startGame(deck, player, computer, gameStats);
 });
-
-// Get game running -> with a click of a button (instead of alerts) -> the loop working

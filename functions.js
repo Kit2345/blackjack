@@ -55,21 +55,22 @@ export function result(player, computer, score) {
   let result = "";
   if (player.handValue > 21) {
     score.computerScore++;
-    result = "You have bust. Player lose";
+    result = "You have bust. Player lose.";
   } else if (computer.handValue > 21) {
     score.playerScore++;
-    result = "Computer has bust. Player win";
+    result = "Computer has bust. Player win.";
   } else if (computer.handValue > player.handValue) {
     score.computerScore++;
-    result = "Computer Wins";
+    result = "Computer Wins.";
   } else if (computer.handValue < player.handValue) {
     score.playerScore++;
-    result = "Player Wins";
+    result = "Player Wins.";
   } else {
     score.computerScore++;
-    result = "Tie goes to the House. Computer Wins";
+    result = "Tie goes to the House. Computer Wins.";
   }
-  return `Player hand: ${player.hand}, player total: ${player.handValue}. Computer hand: ${computer.hand}, computer total: ${computer.handValue}. ${result} Player: ${score.playerScore} Computer: ${score.computerScore}`;
+  // return `Player hand: ${player.hand}, Computer hand: ${computer.hand}`;
+  return `Player Total: ${player.handValue}, Computer Total: ${computer.handValue}. \n\n${result} \n\nPlayer: ${score.playerScore} Computer: ${score.computerScore}`;
 }
 
 export function drawOption(player, deck) {
@@ -78,7 +79,7 @@ export function drawOption(player, deck) {
       player.handValue <= 21 &&
       player.hand.length < 5 &&
       window.confirm(
-        `Your current hand is: ${player.hand}, and total is: ${player.handValue}. Would you like to draw another card?`
+        `Your current hand is: ${player.hand}, and total is: ${player.handValue}. \n\nWould you like to draw another card?`
       )
     ) {
       pushCard(player, deck);
