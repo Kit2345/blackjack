@@ -1,4 +1,4 @@
-import { resetGame, playGame } from "./functions.js";
+import { resetGame, playGame, updateScoreText } from "./functions.js";
 
 let deck = {
   Ace: 1,

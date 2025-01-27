@@ -105,4 +105,11 @@ export function playGame(deck, player, computer, gameStats) {
   computerTurn(computer, deck);
   alert(result(player, computer, gameStats));
   resetHand(player, computer);
+  updateScoreText(gameStats);
+}
+
+export function updateScoreText(gameStats) {
+  const outputDiv = document.getElementById("game-scores");
+  let text = `Final Scores: Player: ${gameStats.playerScore} Computer: ${gameStats.computerScore}`;
+  outputDiv.textContent = text;
 }
