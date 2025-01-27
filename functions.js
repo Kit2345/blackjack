@@ -8,21 +8,14 @@ export function addCard(deck) {
 
 export function pushCard(user, deck) {
   let new_card = addCard(deck);
-  // console.log("new card:", new_card);
   user.hand.push(new_card);
   let total = calculateHandTotal(user.hand, deck);
   user.handValue = total;
-  // console.log("hand is:", user.hand, "total is:", total);
 }
-// function calculate hand total
-// Input: Hand which will be an array
-// Method: Iterate through hand, add scores for non-aces, then deal with any aces
-// Output: Total of hand
 
 export function calculateHandTotal(hand, deck) {
   let ace_count = 0;
   let hand_total = 0;
-  // let status_bust = false
   for (let i = 0; i < hand.length; i++) {
     if (hand[i] == "Ace") {
       ace_count++;
@@ -38,7 +31,6 @@ export function calculateHandTotal(hand, deck) {
 }
 
 export function resetGame(gamestats, player, computer) {
-  // return user = { hand: [], handValue: 0 };
   resetHand(player, computer);
   gamestats.playerScore = 0;
   gamestats.computerScore = 0;
@@ -79,19 +71,6 @@ export function result(player, computer, score) {
   }
   return `Player hand: ${player.hand}, player total: ${player.handValue}. Computer hand: ${computer.hand}, computer total: ${computer.handValue}. ${result} Player: ${score.playerScore} Computer: ${score.computerScore}`;
 }
-
-// Function to ask player what they want to do:
-// Pop up box needs to tell user: current hand, handvalue,
-// Ask whether to draw or stick.
-// While loop -> draw = continue loop
-//            -> bust = break loop
-//            -> stick = break loop
-
-// While loop:
-
-// Confirm box:
-// window.confirm("Do you want to draw?");
-// Ask player whether they want to draw?
 
 export function drawOption(player, deck) {
   while (true) {
