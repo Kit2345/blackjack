@@ -6,7 +6,8 @@ import {
   dealNewGame,
   result,
   drawOption,
-  computerTurn
+  computerTurn,
+  playGame
 } from "./functions.js";
 
 let deck = {
@@ -45,31 +46,38 @@ let computer = { hand: [], handValue: 0 };
 // pushCard(player, deck);
 // pushCard(player, deck);
 
-// // console.log("adding one card to computer");
+// console.log("adding one card to computer");
 // pushCard(computer, deck);
 
-// // Check if totals make sense, if ace added first.
+// Check if totals make sense, if ace added first.
 // player.hand = ["Ace", "King"];
 // pushCard(player, deck);
 
+// // MVP 1.0
 // Reset Hands
-resetGame(gameStats, player, computer);
+// resetGame(gameStats, player, computer);
 // console.log(player);
 
-// Deal new game
-dealNewGame(player, computer, deck);
-console.log(player);
-console.log(computer);
+// // Deal new game
+// dealNewGame(player, computer, deck);
+// console.log(player);
+// console.log(computer);
 
 // console.log(result(player, computer));
 
-// MVP 2.0
-drawOption(player, deck);
-computerTurn(computer, deck);
+// // MVP 2.0
+// drawOption(player, deck);
+// computerTurn(computer, deck);
 
-alert(result(player, computer, gameStats));
+// alert(result(player, computer, gameStats));
 
+// // MVP 3.0
+function startGame(deck, player, computer, gameStats) {
+  resetGame(gameStats, player, computer);
+  playGame(deck, player, computer, gameStats);
+}
 
+startGame(deck, player, computer, gameStats);
 // Function 1 (app)
 // reset on page load and run function 2
 // Function 2 (function)

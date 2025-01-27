@@ -115,6 +115,9 @@ export function computerTurn(computer, deck) {
     }
 }
 
-export function playGame() {
-
+export function playGame(deck, player, computer, gameStats) {
+  dealNewGame(player, computer, deck);
+  drawOption(player, deck);
+  computerTurn(computer, deck);
+  alert(result(player, computer, gameStats));
 }
