@@ -84,7 +84,7 @@ export function result(player, computer) {
 
 export function drawOption(player, deck) {
   while (true) {
-    if (player.handValue <= 21 &&
+    if (player.handValue <= 21 && player.hand.length < 5 &&
       window.confirm(
         `Your current hand is: ${player.hand}, and total is: ${player.handValue}. Would you like to draw another card?`
       )
