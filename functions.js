@@ -43,7 +43,8 @@ export function resetGame(gamestats, player, computer) {
   player.handValue = 0;
   computer.hand.splice(0, computer.hand.length);
   computer.handValue = 0;
-  // gamestats.splice()
+  gamestats.playerScore = 0;
+  gamestats.computerScore = 0;
 }
 // Function that deals a new game
 export function dealNewGame(player, computer, deck) {
@@ -53,20 +54,25 @@ export function dealNewGame(player, computer, deck) {
   pushCard(computer, deck);
 }
 
-export function result(player, computer) {
+export function result(player, computer, score) {
     let result = "";
   if (player.handValue > 21) {
+    score.computerScore ++;
     result = "You have bust. Player lose";
   } else if (computer.handValue > 21) {
+    score.playerScore ++;
     result = "Computer has bust. Player win";
   } else if (computer.handValue > player.handValue) {
+    score.computerScore ++;
     result = "Computer Wins";
   } else if (computer.handValue < player.handValue) {
+    score.playerScore ++;
     result = "Player Wins";
   } else {
+    score.computerScore ++;
     result = "Tie goes to the House. Computer Wins";
   }
-  return `Player hand: ${player.hand}, player total: ${player.handValue}. Computer hand: ${computer.hand}, computer total: ${computer.handValue}. ${result}`;
+  return `Player hand: ${player.hand}, player total: ${player.handValue}. Computer hand: ${computer.hand}, computer total: ${computer.handValue}. ${result} Player: ${score.playerScore} Computer: ${score.computerScore}`;
 }
 
 // Function to ask player what they want to do:
@@ -107,4 +113,8 @@ export function computerTurn(computer, deck) {
     while (computer.handValue < 17 && computer.hand.length < 5) {
         pushCard(computer, deck);
     }
+}
+
+export function playGame() {
+
 }

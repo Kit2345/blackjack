@@ -25,7 +25,7 @@ let deck = {
   King: 10,
 };
 
-let gameStats = [];
+let gameStats = { playerScore: 0, computerScore: 0 };
 let player = { hand: [], handValue: 0 };
 let computer = { hand: [], handValue: 0 };
 
@@ -67,4 +67,13 @@ console.log(computer);
 drawOption(player, deck);
 computerTurn(computer, deck);
 
-alert(result(player, computer));
+alert(result(player, computer, gameStats));
+
+
+// Function 1 (app)
+// reset on page load and run function 2
+// Function 2 (function)
+// loop that deals, scores, stores using Function 3, deals again...
+// when false (play clicks no to continue) loop breaks and score remains on screen
+// when player clicks start again go back to function 1 from beginning
+
